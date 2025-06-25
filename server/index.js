@@ -7,11 +7,15 @@ app.use(cors())
 app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/pose-classifier-db')
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("Server is listening on port 3000");
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB:", err);
+  });
 
 app.get('/hello', (req, res) => {
     res.send('Hello World')
-})
-
-app.listen(8000, () => {
-    console.log('Server Started on port 8000')
 })
