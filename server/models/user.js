@@ -8,7 +8,7 @@ const User = new mongoose.Schema(
     email: {type: String, required: true, unique: true}, 
     password: {type: String, required: true},
     score: {type: Number}
-    }, 
+    },
     {collection: 'users'}   
 );
 
@@ -31,6 +31,26 @@ User.statics.signup = async function(name, email, password){
     const hash = await bcrypt.hash(password, salt);
 
     const user = await this.create({name, email, password: hash})
+
+    return user;
+}
+
+User.statics.login = async function(email, password){
+    if(!email || !password){
+        throw Error('Fill all the fields');
+    }
+
+    const user = await this.findOne({ email });
+
+    if(!user){
+        throw Error("Incorrect Mail");
+    }
+
+    const comparePass = await bcrypt.compare(password, user.password);
+
+    if(!comparePass){
+        throw Error("Incorrect Password");
+    }
 
     return user;
 }
