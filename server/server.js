@@ -8,10 +8,12 @@ const mongoose = require('mongoose')
 app.use(cors())
 app.use(express.json())
 
+const userRoutes = require('./routes/user')
+
 mongoose.connect(process.env.MONGO_URI + 'pose-classifier-db')
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log("Server is listening on port 3000");
+      console.log("Server is listening on port "+ process.env.PORT);
     });
   })
   .catch((err) => {
@@ -21,3 +23,5 @@ mongoose.connect(process.env.MONGO_URI + 'pose-classifier-db')
 app.get('/hello', (req, res) => {
     res.send('Hello World')
 })
+
+app.use('/api/user', userRoutes)
