@@ -55,9 +55,9 @@ const PoseClassifier = () => {
     brain = ml5.neuralNetwork(options);
 
     const modelInfo = {
-      model: 'model2/model.json',
-      metadata: 'model2/model_meta.json',
-      weights: 'model2/model.weights.bin',
+      model: 'yoga_model/model.json',
+      metadata: 'yoga_model/model_meta.json',
+      weights: 'yoga_model/model.weights.bin',
     };
 
     brain.load(modelInfo, () => {
