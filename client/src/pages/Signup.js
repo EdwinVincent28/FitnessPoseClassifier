@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
 import './Signup.css';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
 
@@ -9,10 +10,15 @@ function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {signup, error, isLoading} = useSignup()
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await signup(name, email, password)
+        const result = await signup(name, email, password);
+
+        if (!error) {
+          navigate('/login');
+        }
     }
 
   return (

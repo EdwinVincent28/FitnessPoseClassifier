@@ -2,11 +2,18 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useLogout } from '../hooks/useLogout';
 
 const Home = () => {
 
   const {user} = useAuthContext()
   const navigate = useNavigate();
+  const {logout} = useLogout()
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
+  };
 
   return (
     <div className="home-container">
@@ -46,6 +53,9 @@ const Home = () => {
 
       {user && (
         <>
+          <div className="top-right-buttons">
+            <button onClick={handleLogout}>Logout</button>
+          </div>
           <h1>{user.email}</h1>
           <h2>Welcome to FitTracker!</h2>
           <div className="button-group">
