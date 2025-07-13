@@ -58,9 +58,25 @@ const Home = () => {
           </div>
           <h1>{user.email}</h1>
           <h2>Welcome to FitTracker!</h2>
-          <div className="button-group">
-            <button onClick={() => navigate('/yoga')}>Yoga Pose Accuracy</button>
-            <button onClick={() => navigate('/exercise')}>Live Exercise Counter</button>
+
+          <div className="image-button-group">
+            <div className="image-option" onClick={() => navigate('/yoga')}>
+              <img
+                src="/assets/images/warrior_yoga_pose.jpg"
+                alt="Yoga Pose Accuracy"
+                className="feature-image"
+              />
+              <p>Yoga Pose Accuracy</p>
+            </div>
+
+            <div className="image-option" onClick={() => navigate('/exercise')}>
+              <img
+                src="/assets/images/pushup.jpg"
+                alt="Live Exercise Counter"
+                className="feature-image"
+              />
+              <p>Live Exercise Counter</p>
+            </div>
           </div>
         </>
       )}

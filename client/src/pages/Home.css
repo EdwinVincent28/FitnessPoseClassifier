@@ -35,3 +35,35 @@
   font-size: 1.1rem;
   margin: 0.5rem 0;
 }
+
+.image-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-option {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.image-option:hover {
+  transform: scale(1.05);
+}
+
+.feature-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-option p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
