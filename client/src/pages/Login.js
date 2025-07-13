@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
 import { useAuthContext } from '../hooks/useAuthContext'
+import './Login.css';
 
 function Login() {
     const [email, setEmail] = useState('')
