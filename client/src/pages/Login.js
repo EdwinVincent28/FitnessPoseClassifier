@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
+import { useAuthContext } from '../hooks/useAuthContext'
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -32,6 +33,7 @@ function Login() {
         <button disabled={isLoading}>Log in</button>
         {error && <div className="error">{error}</div>}
         </form>
+        
     )
 }
 

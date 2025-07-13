@@ -2,8 +2,8 @@ import React from 'react';
 import PoseClassifier from './PoseClassifier';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import YogaPose from './pages/YogaPose';
 import ExerciseCounter from './pages/ExerciseCounter';
 
