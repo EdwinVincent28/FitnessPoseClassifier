@@ -1,0 +1,59 @@
+.yoga-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: #f4f4f4;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h3 {
+  margin-bottom: 1rem;
+}
+
+.sidebar button {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.sidebar button.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: row; /* 👈 This sets side-by-side layout */
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.pose-info {
+  flex: 1;
+  text-align: center;
+}
+
+.pose-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pose-classifier {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}

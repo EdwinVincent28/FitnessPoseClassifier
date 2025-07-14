@@ -7,9 +7,12 @@ let pose;
 let skeleton;
 let brain;
 let poseLabel = 'Y';
+let accuracy;
+let selectedPose;
 
-const PoseClassifier = () => {
+const PoseClassifier = (props) => {
   const [ml5Ready, setMl5Ready] = useState(false);
+  selectedPose=props.expectedPose;
 
   useEffect(() => {
     const checkMl5 = () => {
@@ -22,6 +25,16 @@ const PoseClassifier = () => {
       }
     };
     checkMl5();
+
+    return () => {
+      // Cleanup function to reset variables if needed
+      video = null;
+      poseNet = null;
+      pose = null;
+      skeleton = null;
+      brain = null;
+      poseLabel = 'Y';
+    };
   }, []);
 
   const setup = (p5, canvasParentRef) => {
@@ -80,10 +93,13 @@ const PoseClassifier = () => {
   };
 
   const gotResult = (error, results) => {
-    if (results && results[0].confidence > 0.90) {
-      poseLabel = results[0].label.toUpperCase();
+    if (results && results[0].confidence > 0.95) {
+      // poseLabel = results[0].label.toUpperCase();
+      poseLabel = results[0].label;
+      accuracy = results[0].confidence;
       // Write our logic here
       console.log("Pose classified correctly:", poseLabel);
+      // console.log("selectedPose:", selectedPose);
     }
     classifyPose(); // Loop for live classification
   };
@@ -114,9 +130,14 @@ const PoseClassifier = () => {
 
     p5.fill(255, 0, 255);
     p5.noStroke();
-    p5.textSize(64);
-    p5.textAlign(p5.CENTER, p5.CENTER);
-    p5.text(poseLabel, p5.width / 2, p5.height / 2);
+    p5.textSize(25);
+    p5.textAlign(p5.RIGHT, p5.TOP);
+    // p5.text(poseLabel, p5.width / 2, p5.height / 2);
+    if(poseLabel == selectedPose){
+      p5.text(`Pose: ${poseLabel} (${(accuracy * 100).toFixed(2)}%)`, p5.width - 10, 10);
+    }
+    // p5.text(`Pose: ${poseLabel} (${(accuracy * 100).toFixed(2)}%)`, p5.width - 10, 10);
+    // p5.text('Pose not classified', p5.width - 10, 10);
   };
 
   return (
