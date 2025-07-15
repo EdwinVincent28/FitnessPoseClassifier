@@ -9,6 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 const userRoutes = require('./routes/user')
+const publicRoutes = require('./routes/public')
 
 mongoose.connect(process.env.MONGO_URI + 'pose-classifier-db')
   .then(() => {
@@ -25,3 +26,4 @@ app.get('/hello', (req, res) => {
 })
 
 app.use('/api/user', userRoutes)
+app.use('/api/public', publicRoutes)
