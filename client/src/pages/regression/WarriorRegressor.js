@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sketch from 'react-p5';
+import RegressorLayout from '../../componants/RegressorLayout';
 
 let video;
 let poseNet;
@@ -77,7 +78,7 @@ const WarriorRegressor = () => {
       const inputs = pose.keypoints.flatMap(kp => [kp.position.x, kp.position.y]);
       brain.predict(inputs, gotResult);
     } else {
-      setTimeout(predictPose, 100);
+      setTimeout(predictPose, 400);
     }
   };
 
@@ -88,7 +89,7 @@ const WarriorRegressor = () => {
       prediction = results[0].value.toFixed(2);
       console.log("Predicted Value:", prediction);
     }
-    setTimeout(predictPose, 100); // Loop prediction
+    setTimeout(predictPose, 400); // Loop prediction
   };
 
   const draw = (p5) => {
@@ -125,7 +126,9 @@ const WarriorRegressor = () => {
 
   return (
     <div style={{ padding: '20px' }}>
+      <RegressorLayout>
       {ml5Ready ? <Sketch setup={setup} draw={draw} /> : <h3>Loading ml5.js...</h3>}
+      </RegressorLayout>
     </div>
   );
 };

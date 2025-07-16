@@ -66,16 +66,16 @@ const Home = () => {
                 alt="Yoga Pose Accuracy"
                 className="feature-image"
               />
-              <p>Yoga Pose Accuracy</p>
+              <p>Yoga Pose Classification</p>
             </div>
 
-            <div className="image-option" onClick={() => navigate('/exercise')}>
+            <div className="image-option" onClick={() => navigate('/warrior_regressor')}>
               <img
-                src="/assets/images/pushup.jpg"
+                src="/assets/images/stretch.jpeg"
                 alt="Live Exercise Counter"
                 className="feature-image"
               />
-              <p>Live Exercise Counter</p>
+              <p>Yoga Pose Regression</p>
             </div>
           </div>
         </>

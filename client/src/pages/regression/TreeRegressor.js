@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sketch from 'react-p5';
+import Sidebar from '../../componants/Sidebar';
+import RegressorLayout from '../../componants/RegressorLayout';
 
 let video;
 let poseNet;
@@ -125,7 +127,9 @@ const TreeRegressor = () => {
 
   return (
     <div style={{ padding: '20px' }}>
+      <RegressorLayout>
       {ml5Ready ? <Sketch setup={setup} draw={draw} /> : <h3>Loading ml5.js...</h3>}
+      </RegressorLayout>
     </div>
   );
 };

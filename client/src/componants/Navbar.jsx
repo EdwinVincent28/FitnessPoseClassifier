@@ -9,7 +9,7 @@ const Navbar = () => {
       <div>
         <a href="/">Home</a>
         <a href="/yoga">Pose Classification </a>
-        <a href="/exercise">Pose Regression</a>
+        <a href="/warrior_regressor">Pose Regression</a>
       </div>
     </nav>
   );
