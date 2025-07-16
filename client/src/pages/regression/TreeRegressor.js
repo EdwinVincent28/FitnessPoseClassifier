@@ -77,7 +77,7 @@ const TreeRegressor = () => {
       const inputs = pose.keypoints.flatMap(kp => [kp.position.x, kp.position.y]);
       brain.predict(inputs, gotResult);
     } else {
-      setTimeout(predictPose, 100);
+      setTimeout(predictPose, 400);
     }
   };
 
@@ -88,7 +88,7 @@ const TreeRegressor = () => {
       prediction = results[0].value.toFixed(2);
       console.log("Predicted Value:", prediction);
     }
-    setTimeout(predictPose, 100); // Loop prediction
+    setTimeout(predictPose, 400); // Loop prediction
   };
 
   const draw = (p5) => {
