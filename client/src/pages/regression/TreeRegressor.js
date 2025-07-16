@@ -101,19 +101,19 @@ const TreeRegressor = () => {
     p5.scale(-1, 1);
     p5.image(video, 0, 0, video.width, video.height);
 
-    if (pose) {
-      skeleton.forEach(([a, b]) => {
-        p5.stroke(0);
-        p5.strokeWeight(2);
-        p5.line(a.position.x, a.position.y, b.position.x, b.position.y);
-      });
+    // if (pose) {
+    //   skeleton.forEach(([a, b]) => {
+    //     p5.stroke(0);
+    //     p5.strokeWeight(2);
+    //     p5.line(a.position.x, a.position.y, b.position.x, b.position.y);
+    //   });
 
-      pose.keypoints.forEach(({ position }) => {
-        p5.fill(0);
-        p5.stroke(255);
-        p5.ellipse(position.x, position.y, 16, 16);
-      });
-    }
+    //   pose.keypoints.forEach(({ position }) => {
+    //     p5.fill(0);
+    //     p5.stroke(255);
+    //     p5.ellipse(position.x, position.y, 16, 16);
+    //   });
+    // }
 
     p5.pop();
 
