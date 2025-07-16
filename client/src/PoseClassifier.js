@@ -6,7 +6,7 @@ let poseNet;
 let pose;
 let skeleton;
 let brain;
-let poseLabel = 'Y';
+let poseLabel = 'Starting...';
 let accuracy;
 let selectedPose;
 
@@ -33,7 +33,7 @@ const PoseClassifier = (props) => {
       pose = null;
       skeleton = null;
       brain = null;
-      poseLabel = 'Y';
+      poseLabel = 'Starting...';
     };
   }, []);
 
@@ -60,7 +60,7 @@ const PoseClassifier = (props) => {
 
     const options = {
       inputs: 34,
-      outputs: 4,
+      outputs: 3,
       task: 'classification',
       debug: true,
     };
@@ -93,7 +93,7 @@ const PoseClassifier = (props) => {
   };
 
   const gotResult = (error, results) => {
-    if (results && results[0].confidence > 0.95) {
+    if (results && results[0].confidence > 0.98) {
       // poseLabel = results[0].label.toUpperCase();
       poseLabel = results[0].label;
       accuracy = results[0].confidence;
@@ -133,10 +133,10 @@ const PoseClassifier = (props) => {
     p5.textSize(25);
     p5.textAlign(p5.RIGHT, p5.TOP);
     // p5.text(poseLabel, p5.width / 2, p5.height / 2);
-    if(poseLabel == selectedPose){
-      p5.text(`Pose: ${poseLabel} (${(accuracy * 100).toFixed(2)}%)`, p5.width - 10, 10);
-    }
-    // p5.text(`Pose: ${poseLabel} (${(accuracy * 100).toFixed(2)}%)`, p5.width - 10, 10);
+    // if(poseLabel == selectedPose){
+      // p5.text(`Pose: ${poseLabel} (${(accuracy * 100).toFixed(2)}%)`, p5.width - 10, 10);
+    // }
+    p5.text(`Pose: ${poseLabel}`, p5.width - 10, 10);
     // p5.text('Pose not classified', p5.width - 10, 10);
   };
 

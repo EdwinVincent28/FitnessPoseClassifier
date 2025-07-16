@@ -5,11 +5,11 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>🏋️‍♂️ FitTracker</h1>
+      <h1>🧘 Yoga Tracker</h1>
       <div>
         <a href="/">Home</a>
-        <a href="/yoga">Yoga Pose</a>
-        <a href="/exercise">Exercise Counter</a>
+        <a href="/yoga">Pose Classification </a>
+        <a href="/exercise">Pose Regression</a>
       </div>
     </nav>
   );

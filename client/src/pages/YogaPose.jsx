@@ -4,15 +4,15 @@ import './YogaPose.css';
 
 const poses = {
   warrior: {
-    label: 'warrior',
+    label: 'Warrior',
     image: '/assets/images/warrior.jpg',
   },
   tree: {
-    label: 'tree',
+    label: 'Tree',
     image: '/assets/images/tree.jpg',
   },
   stretch: {
-    label: 'stretch',
+    label: 'Stretch',
     image: '/assets/images/stretch.jpeg',
   },
 };
@@ -22,7 +22,7 @@ const YogaPose = () => {
 
   return (
     <div className="yoga-container">
-      <div className="sidebar">
+      {/* <div className="sidebar">
         <h3>Choose Pose</h3>
         {Object.keys(poses).map((pose) => (
           <button
@@ -33,20 +33,20 @@ const YogaPose = () => {
             {poses[pose].label}
           </button>
         ))}
-      </div>
+      </div> */}
 
       <div className="main-area">
         <div className="pose-classifier">
           <PoseClassifier expectedPose={selectedPose} />
         </div>
-        <div className="pose-info">
-          <img
-            src={poses[selectedPose].image}
-            alt={poses[selectedPose].label}
-            className="pose-image"
-          />
+        <div className="pose-gallery">
+          {Object.entries(poses).map(([key, pose]) => (
+            <div key={key} className="pose-card">
+              <img src={pose.image} alt={pose.label} />
+              <p>{pose.label}</p>
+            </div>
+          ))}
         </div>
-        
       </div>
     </div>
   );

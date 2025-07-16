@@ -6,10 +6,12 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import YogaPose from './pages/YogaPose';
 import ExerciseCounter from './pages/ExerciseCounter';
+import Navbar from './componants/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pose" element={<PoseClassifier />} />
