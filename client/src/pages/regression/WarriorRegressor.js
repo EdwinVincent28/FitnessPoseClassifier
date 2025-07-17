@@ -89,7 +89,7 @@ const WarriorRegressor = () => {
       prediction = results[0].value.toFixed(2);
       console.log("Predicted Value:", prediction);
     }
-    setTimeout(predictPose, 400); // Loop prediction
+    setTimeout(predictPose, 400); 
   };
 
   const draw = (p5) => {

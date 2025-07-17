@@ -39,7 +39,7 @@ const Home = () => {
                     />
               </div>
               <div className="col-lg-6">
-                    <p><strong>Live Exercise Counter</strong>: Count reps live with pose detection and form accuracy.</p>
+                    <p><strong>Yoga Pose Regressor</strong>: Get the accuracy of the yoga pose you are performing</p>
                     <img 
                       src="/assets/images/pushup.jpg" 
                       alt="Pushups" 

@@ -94,12 +94,9 @@ const PoseClassifier = (props) => {
 
   const gotResult = (error, results) => {
     if (results && results[0].confidence > 0.98) {
-      // poseLabel = results[0].label.toUpperCase();
       poseLabel = results[0].label;
       accuracy = results[0].confidence;
-      // Write our logic here
       console.log("Pose classified correctly:", poseLabel);
-      // console.log("selectedPose:", selectedPose);
     }
     classifyPose(); // Loop for live classification
   };
