@@ -5,7 +5,9 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 
-app.use(cors())
+app.use(cors({
+  origin: "https://your-frontend.onrender.com"
+}));
 app.use(express.json())
 
 const userRoutes = require('./routes/user')
