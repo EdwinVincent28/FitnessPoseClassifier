@@ -6,7 +6,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 app.use(cors({
-  origin: "https://your-frontend.onrender.com"
+  origin: "https://fitnessposeclassifier.onrender.com"
 }));
 app.use(express.json())
 
