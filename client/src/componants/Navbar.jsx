@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useLogout } from '../hooks/useLogout';
 
@@ -9,7 +10,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await logout();
-    window.location.href = '/';  // refresh after logout
+    window.location.href = '/';
   };
 
   return (
@@ -17,18 +18,22 @@ const Navbar = () => {
       <h1>🧘 Yoga Tracker</h1>
 
       <div>
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
+
         {user && (
           <>
-            <a href="/yoga">Pose Classification</a>
-            <a href="/warrior_regressor">Pose Regression</a>
-            <a className="logout-btn" onClick={handleLogout}>Logout</a>
+            <Link to="/yoga">Pose Classification</Link>
+            <Link to="/warrior_regressor">Pose Regression</Link>
+            <span className="logout-btn" onClick={handleLogout}>
+              Logout
+            </span>
           </>
         )}
+
         {!user && (
           <>
-            <a href="/login">Login</a>
-            <a href="/signup">Sign Up</a>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
           </>
         )}
       </div>
